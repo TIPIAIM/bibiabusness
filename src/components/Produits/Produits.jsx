@@ -1,5 +1,8 @@
 import { send } from "@emailjs/browser";
-import React, { useState, useEffect } from "react";
+
+import { React, lazy, useState, useEffect } from "react";
+const Navigation = lazy(() => import("../Navigation"));
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -30,10 +33,9 @@ import chemiseSoie from "../../assets/com.jpg";
 import produits from "../../assets/produits.jpg";
 import hhhhh from "../../assets/hhhhh.jpeg";
 import prodd from "../../assets/prodd.webp";
-import Navigation from "../Navigation";
 import { Helmet } from "react-helmet";
 import Seo from "../../SEO";
-import fondbleufonce from '../../assets/fondbleufonce.png'
+import fondbleufonce from '../../assets/fondbleufonce.avif'
 
 const createSchemaMarkup = (product) => ({
   "@context": "https://schema.org",
@@ -42,14 +44,14 @@ const createSchemaMarkup = (product) => ({
    image: fondbleufonce,
    telephone: "+224623146940",
    email: "contact@bibiabusness.com",
-   url: "https://www.bibiabusness.com/produit",
+   url: "https://bibiabusness.vercel.app/produit",
   brand: {
     "@type": "Brand",
     name: "bibiabusness",
   },
   offers: {
     "@type": "Offer",
-    url: "https://www.bibiabusness.com/produit/",
+    url: "https://bibiabusness.vercel.app/produit/",
     priceCurrency: "GNF",
     price: product.price,
     priceValidUntil: "2025-12-31",

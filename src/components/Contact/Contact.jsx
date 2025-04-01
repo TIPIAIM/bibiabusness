@@ -1,5 +1,6 @@
 import { send } from "@emailjs/browser";
-import { React, useState } from "react";
+import { React, lazy, useState } from "react";
+const Navigation = lazy(() => import("../Navigation"));
 import { styled, keyframes } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,12 +12,11 @@ import {
   faPhone,
   faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
-import Navigation from "../Navigation";
+
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet";
 import Seo from "../../SEO";
-import fondbleufonce from '../../assets/fondbleufonce.png'
 
 // Configuration EmailJS
 const EMAILJS_CONFIG = {
@@ -51,9 +51,9 @@ const Container = styled.div`
     padding: 1.5rem;
     margin: 1rem;
   }
-     @media (max-width: 480px) {
-      margin: 0rem auto;
-       padding: 1rem;
+  @media (max-width: 480px) {
+    margin: 0rem auto;
+    padding: 1rem;
   }
 `;
 
@@ -210,7 +210,7 @@ const createSchemaMarkup = () => ({
   "@type": "ContactPage",
   name: "Contactez-nous",
   description: "Formulaire de contact pour votre boutique en ligne",
-  url: "https://www.bibiabusness.com/contact",
+  url: "https://bibiabusness.vercel.app/contact",
   telephone: "+224 623 146 940",
   email: "contact@bibiabusness.com",
   address: {
@@ -222,7 +222,7 @@ const createSchemaMarkup = () => ({
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["L", "M", "M", "J", "V","S","D"],
+    dayOfWeek: ["L", "M", "M", "J", "V", "S", "D"],
     opens: "08:00",
     closes: "18:00",
   },
@@ -304,7 +304,7 @@ const Contact = () => {
 
   return (
     <div>
-       <Seo
+      <Seo
         title="Contact - Votre Boutique en ligne"
         description="Contactez notre équipe pour toute question. Formulaire de contact sécurisé et réponse rapide garantie."
         keywords="contact boutique, service client, questions produits, assistance"
@@ -312,10 +312,10 @@ const Contact = () => {
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(createSchemaMarkup())}
-        </script>       
+        </script>
       </Helmet>
       <Navigation />
-      
+
       <ToastContainer
         position="top-right"
         autoClose={5000}

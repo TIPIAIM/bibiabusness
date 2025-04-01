@@ -1,4 +1,7 @@
-import React from "react";
+
+import { React, lazy } from "react";
+const Navigation = lazy(() => import("../Navigation"));
+
 import styled, { keyframes } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import naroumba from '../../assets/naroumb.avif'
@@ -10,23 +13,23 @@ import {
   faAward
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import Navigation from "../Navigation";
+
 import { Helmet } from "react-helmet";
 import Seo from "../../SEO";
-import fondbleufonce from '../../assets/fondbleufonce.png'
+//import fondbleufonce from '../../assets/fondbleufonce.png'
 
 const createSchemaMarkup = () => ({
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: "À propos de notre boutique",
   description: "Découvrez notre histoire et notre engagement envers nos clients",
-  url: "https://www.bibiabusness.com/apropos",
+  url: "https://bibiabusness.vercel.app/apropos",
   publisher: {
     "@type": "Organization",
     name: "bibiabusness",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.bibiabusness.com/fondbleufonce.png",
+      url: "https://bibiabusness.vercel.app/fondbleufonce.png",
     },
   },
   foundingDate: "2017-01-01",

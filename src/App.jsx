@@ -9,11 +9,13 @@ import Produits from "./components/Produits/Produits";
 import Accueil from "./components/Accueil/Accueil";
 import Contact from "./components/Contact/Contact";
 import APropos from "./components/Apropos/Apropos";
-import Navigation from "./components/Navigation";
 import Footer from "./components/Footerrr";
 
+//const Navigation = React.lazy(() => import('../Navigation'));
+
 {
-  /*
+  /*          <Route path="/toutes" element={<Navbar />} />
+
        <div>
       <BrowserRouter>
         {" "}
@@ -58,7 +60,6 @@ function App() {
             }
           />
           <Route path="/visiteur" element={<Visiteur />} />
-          <Route path="/toutes" element={<Navbar />} />
        
           <Route path="/accueil" element={<Accueil />} />
           <Route path="/produit" element={<Produits />} />

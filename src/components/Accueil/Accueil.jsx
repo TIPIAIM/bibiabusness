@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+
+import { React, lazy, useState ,useEffect} from "react";
+const Navigation = lazy(() => import("../Navigation"));
 import styled, { keyframes, createGlobalStyle } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -18,10 +20,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
-import Navigation from "../Navigation";
+
+
 import { Helmet } from "react-helmet";
 import Seo from "../../SEO";
-import fondbleufonce from '../../assets/fondbleufonce.png'
+import fondbleufonce from '../../assets/fondbleufonce.avif'
 // Palette de couleurs pour les thèmes clair et sombre
 const colors = {
   light: {
@@ -631,7 +634,7 @@ const createSchemaMarkup = () => ({
   image: fondbleufonce,
   telephone: "+224623146940",
   email: "contact@bibiabusness.com",
-  url: "https://www.bibiabusness.com",
+  url: "https://bibiabusness.vercel.app",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Guinée conakry kamsar",
