@@ -20,7 +20,7 @@ import {
   faCouch, // Maison - Plus élégant que faHouse
   faSprayCanSparkles, // Beauté - Version premium de faSprayCan
   faGem, // Bijoux - Nouvelle catégorie
-  faUtensils, // Cuisine - Nouvelle catégorie
+  faUtensils, // maison - Nouvelle catégorie
   faBookOpen, // Livres - Nouvelle catégorie
   faHeartPulse,
   faPhone,
@@ -30,8 +30,23 @@ import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
 import chemiseSoie from "../../assets/com.jpg";
-import produits from "../../assets/produits.jpg";
+
 import hhhhh from "../../assets/hhhhh.jpeg";
+
+import eee from "../../assets/1.png";
+import eeee from "../../assets/2.png";
+import rr from "../../assets/3.png";
+import rrr from "../../assets/4.png";
+import rrrr from "../../assets/5.png";
+import six from "../../assets/6.png";
+import sep from "../../assets/7.png";
+import hui from "../../assets/8.png";
+import ne from "../../assets/9.png";
+import dix from "../../assets/10.png";
+import onz from "../../assets/11.png";
+
+
+
 import prodd from "../../assets/prodd.webp";
 import { Helmet } from "react-helmet";
 import Seo from "../../SEO";
@@ -777,7 +792,7 @@ const Navbar = () => {
       color: "#FF6B6B", // Rouge pastel
     },
     {
-      id: "electronics",
+      id: "electronique",
       name: "Électronique",
       icon: faMobileScreen,
       color: "#4ECDC4", // Turquoise
@@ -801,8 +816,8 @@ const Navbar = () => {
       color: "#06D6A0", // Émeraude
     },
     {
-      id: "cuisine",
-      name: "Cuisine",
+      id: "maison",
+      name: "Maison",
       icon: faUtensils,
       color: "#EF476F", // Rose vif
     },
@@ -813,7 +828,7 @@ const Navbar = () => {
       color: "#118AB2", // Bleu océan
     },
     {
-      id: "sante",
+      id: "habillement",
       name: "Santé",
       icon: faHeartPulse,
       color: "#FF9A5A", // Orange doux
@@ -825,7 +840,7 @@ const Navbar = () => {
     {
       id: 1,
       name: "Chemise en Soie",
-      price: 89.99,
+      price: 89199,
       image: chemiseSoie,
       category: "mode",
       description:
@@ -834,7 +849,7 @@ const Navbar = () => {
     {
       id: 2,
       name: "Jean Slim Noir",
-      price: 59.99,
+      price: 59099,
       image: prodd,
       category: "mode",
       description:
@@ -845,18 +860,18 @@ const Navbar = () => {
     {
       id: 3,
       name: "Montre Connectée",
-      price: 199.99,
-      image: produits,
-      category: "electronics",
+      price: 200000,
+      image: onz,
+      category: "electronique",
       description:
         "Montre intelligente avec suivi d'activité, notifications et autonomie de 7 jours.",
     },
     {
       id: 4,
       name: "Écouteurs Sans Fil",
-      price: 129.99,
+      price: 129099,
       image: prodd,
-      category: "electronics",
+      category: "electronique",
       description:
         "Écouteurs Bluetooth avec réduction de bruit active et son haute fidélité.",
     },
@@ -865,7 +880,7 @@ const Navbar = () => {
     {
       id: 5,
       name: "Lampe Design",
-      price: 129.99,
+      price: 129099,
       image: prodd,
       category: "maison",
       description:
@@ -873,19 +888,19 @@ const Navbar = () => {
     },
     {
       id: 6,
-      name: "Plateau en Bambou",
-      price: 34.99,
-      image: prodd,
+      name: "Confort",
+      price: 40000,
+      image: hui,
       category: "maison",
       description:
-        "Plateau rectangulaire en bambou naturel, idéal pour le petit déjeuner au lit.",
+        "Naturel, idéal pour la douche.",
     },
 
     // Catégorie Beauté
     {
       id: 7,
       name: "Parfum Luxe",
-      price: 79.99,
+      price: 79099,
       image: hhhhh,
       category: "beaute",
       description:
@@ -893,93 +908,94 @@ const Navbar = () => {
     },
     {
       id: 8,
-      name: "Kit Soin Visage",
-      price: 49.99,
-      image: chemiseSoie,
-      category: "beaute",
+      name: "Couverture",
+      price: 490000,
+      image: ne,
+      category: "maison",
       description:
-        "Kit complet de soin visage bio (nettoyant, tonique, crème hydratante).",
+        "Tres resistant contre le froid",
     },
 
     // Catégorie Bijoux
     {
       id: 9,
-      name: "Bracelet Argent",
-      price: 89.99,
-      image: chemiseSoie,
+      name: "Sac Argent",
+      price: 200000,
+      image: eee,
       category: "bijoux",
       description:
-        "Bracelet en argent 925 avec fermoir sécurisé, design intemporel.",
+        "Sac avec fermoir sécurisé, design intemporel.",
     },
     {
       id: 10,
-      name: "Boucles d'Oreilles Or",
-      price: 119.99,
-      image: chemiseSoie,
+      name: "Sac a main",
+      price: 119099,
+      image: eeee,
       category: "bijoux",
       description:
-        "Boucles d'oreilles en or 18 carats avec pierres zirconium cubique.",
+        "Sac avec fermoir sécurisé, design intemporel.",
     },
 
-    // Catégorie Cuisine
+    // Catégorie maison
     {
       id: 11,
-      name: "Couteau Chef Professionnel",
-      price: 69.99,
-      image: chemiseSoie,
-      category: "cuisine",
+      name: "Le lit",
+      price: 500000,
+      image: sep,
+      category: "maison",
       description:
-        "Couteau de chef 20cm en acier inoxydable haute résistance, manche ergonomique.",
+        "Inoxydable haute résistance, manche ergonomique.",
     },
     {
       id: 12,
-      name: "Set de Bols Céramique",
-      price: 45.99,
-      image: chemiseSoie,
-      category: "cuisine",
+      name: "Mixage",
+      price: 400000,
+      image: rr,
+      category: "electronique",
       description:
-        "Set de 6 bols en céramique émaillée, résistants au four et au lave-vaisselle.",
+        "Pour vos mixages de menage",
     },
 
     // Catégorie Livres
     {
       id: 13,
-      name: "Roman Best-Seller",
-      price: 19.99,
-      image: chemiseSoie,
-      category: "livres",
+      name: "T-shirt",
+      price: 80000,
+      image: six,
+      category: "mode",
       description:
-        "Dernier roman à suspense de l'auteur primé, édition brochée avec marque-page.",
+        "Il y'a des differentes couleurs disponible",
     },
     {
       id: 14,
-      name: "Guide de Voyage",
-      price: 24.99,
-      image: chemiseSoie,
-      category: "livres",
+      name: "Machine menage",
+      price: 240099,
+      image: dix,
+      category: "electronique",
       description:
-        "Guide complet avec cartes détaillées, bonnes adresses et conseils pratiques.",
+        "Pour le menage de votre maison",
     },
 
     // Catégorie Santé
     {
       id: 15,
-      name: "Thermomètre Digital",
-      price: 29.99,
-      image: chemiseSoie,
-      category: "sante",
+      name: "Habillement",
+      price: 150000,
+      image: rrr,
+      category: "mode",
       description:
-        "Thermomètre digital précis avec écran LCD et mémoire des dernières mesures.",
+        "Habillement confortable avec style",
     },
     {
       id: 16,
       name: "Huile Essentielle Lavande",
-      price: 14.99,
-      image: chemiseSoie,
-      category: "sante",
+      price: 148099,
+      image: rrrr,
+      category: "mode",
       description:
-        "Huile essentielle 100% pure de lavande bio, 10ml, pour détente et sommeil.",
+        "Habillement confortable avec style",
     },
+
   ];
   // Effets
   useEffect(() => {
