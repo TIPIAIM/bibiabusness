@@ -1,16 +1,15 @@
-
 import { React, lazy } from "react";
 const Navigation = lazy(() => import("../Navigation"));
 
 import styled, { keyframes } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import naroumba from '../../assets/naroumb.avif'
+import naroumba from "../../assets/naroumb.avif";
 import {
   faLeaf,
   faRocket,
   faHandshake,
   faUsers,
-  faAward
+  faAward,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
@@ -22,7 +21,8 @@ const createSchemaMarkup = () => ({
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: "À propos de notre boutique",
-  description: "Découvrez notre histoire et notre engagement envers nos clients",
+  description:
+    "Découvrez notre histoire et notre engagement envers nos clients",
   url: "https://bibiabusness.vercel.app/apropos",
   publisher: {
     "@type": "Organization",
@@ -57,7 +57,7 @@ const AboutContainer = styled.section`
   color: #011d23;
 
   @media (max-width: 768px) {
-    padding: 1rem 0rem;
+    padding: 1rem 1rem;
   }
 `;
 
@@ -94,7 +94,7 @@ const HeroImage = styled.div`
   background: #e9ecef;
   height: 600px;
   overflow: hidden;
-box-shadow: 2px 2px 1px #b96f33; 
+  box-shadow: 2px 2px 1px #b96f33;
   @media (max-width: 992px) {
     width: 100%;
     order: -1; /* Image en premier sur mobile */
@@ -143,6 +143,7 @@ const Subtitle = styled.p`
   @media (max-width: 768px) {
     font-size: 1.1rem;
     text-align: left;
+    margin: 0 0 0 1rem;
   }
 `;
 
@@ -160,6 +161,7 @@ const MissionSection = styled.div`
   @media (max-width: 768px) {
     padding: 2rem 1rem;
     margin: 0 1rem 3rem;
+  
     width: calc(100% - 2rem);
   }
 `;
@@ -184,7 +186,7 @@ const SectionTitle = styled.h2`
   }
 
   @media (max-width: 768px) {
-    font-size: 1.8rem;
+    font-size: 2rem;
     text-align: center;
   }
 `;
@@ -205,7 +207,7 @@ const ValuesGrid = styled.div`
 const ValueCard = styled.div`
   background: white;
   padding: 2rem;
-box-shadow: -2px 4px 2px #b96f33 ;
+  box-shadow: -2px 4px 2px #b96f33;
   text-align: center;
   transition: all 0.3s ease;
   display: flex;
@@ -214,8 +216,7 @@ box-shadow: -2px 4px 2px #b96f33 ;
 
   &:hover {
     transform: translateY(-5px);
-   box-shadow: 4px 4px 0px #011d23 ;
-
+    box-shadow: 4px 4px 0px #011d23;
   }
 
   @media (max-width: 768px) {
@@ -238,7 +239,7 @@ const ValueIcon = styled.div`
   font-size: 1.8rem;
 `;
 const ValueTitle = styled.h3`
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: #011d23;
   margin-bottom: 1rem;
   text-align: center;
@@ -263,6 +264,7 @@ const TeamSection = styled.div`
 
   @media (max-width: 768px) {
     margin-top: 3rem;
+    margin: 1rem;
   }
 `;
 
@@ -279,10 +281,10 @@ const CTAButton = styled.button`
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
-  box-shadow: -4px 4px 0px #011d23 ;
+  box-shadow: -4px 4px 0px #011d23;
   &:hover {
     background: #a07753;
-      box-shadow: 4px 4px 0px #011d23 ;
+    box-shadow: 4px 4px 0px #011d23;
     animation: ${pulse} 0.8s ease infinite;
   }
 
@@ -290,13 +292,15 @@ const CTAButton = styled.button`
     width: 100%;
     max-width: 300px;
     justify-content: center;
+     margin:  1.2rem;
+    
   }
 `;
 
 const APropos = () => {
   return (
     <AboutContainer>
-       <Seo
+      <Seo
         title="À propos - Votre Boutique en ligne"
         description="Découvrez notre histoire, notre mission et notre engagement envers la qualité et le service client."
         keywords="histoire boutique, notre équipe, valeurs, mission"
@@ -305,10 +309,9 @@ const APropos = () => {
         <script type="application/ld+json">
           {JSON.stringify(createSchemaMarkup())}
         </script>
-       
       </Helmet>
-      <Navigation  />
-     
+      <Navigation />
+
       <AboutWrapper>
         <HeroSection>
           <HeroContent>
@@ -358,8 +361,8 @@ const APropos = () => {
               margin: "0 auto 2rem",
             }}
           >
-            <Highlight>Chez BibiaBusiness</Highlight>, nous nous engageons à révolutionner votre
-            expérience d'achat en ligne avec :
+            <Highlight>Chez BibiaBusiness</Highlight>, nous nous engageons à
+            révolutionner votre expérience d'achat en ligne avec :
           </Subtitle>
 
           <ValuesGrid>
@@ -407,7 +410,10 @@ const APropos = () => {
         </MissionSection>
 
         <TeamSection>
-          <SectionTitle> <Highlight>Rencontrez</Highlight> Notre Équipe</SectionTitle>
+          <SectionTitle>
+            {" "}
+            <Highlight>Rencontrez</Highlight> Notre Équipe
+          </SectionTitle>
           <Subtitle style={{ maxWidth: "800px", margin: "0 auto" }}>
             Une équipe passionnée et expérimentée travaille sans relâche pour
             vous offrir la meilleure expérience d'achat.
@@ -422,10 +428,7 @@ const APropos = () => {
           </CTAButton>
         </TeamSection>
       </AboutWrapper>
-      <div className=" mb-52"> 
-          
-          </div>
-          
+      <div className=" mb-52"></div>
     </AboutContainer>
   );
 };

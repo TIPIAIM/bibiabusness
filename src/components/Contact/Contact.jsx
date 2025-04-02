@@ -53,7 +53,7 @@ const Container = styled.div`
   }
   @media (max-width: 480px) {
     margin: 0rem auto;
-    padding: 1rem;
+    padding: 2rem;
   }
 `;
 

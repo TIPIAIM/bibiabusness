@@ -45,21 +45,19 @@ import ne from "../../assets/9.png";
 import dix from "../../assets/10.png";
 import onz from "../../assets/11.png";
 
-
-
 import prodd from "../../assets/prodd.webp";
 import { Helmet } from "react-helmet";
 import Seo from "../../SEO";
-import fondbleufonce from '../../assets/fondbleufonce.avif'
+import fondbleufonce from "../../assets/fondbleufonce.avif";
 
 const createSchemaMarkup = (product) => ({
   "@context": "https://schema.org",
   "@type": "Product",
   name: "BIBIA-BUSNESS",
-   image: fondbleufonce,
-   telephone: "+224623146940",
-   email: "contact@bibiabusness.com",
-   url: "https://bibiabusness.vercel.app/produit",
+  image: fondbleufonce,
+  telephone: "+224623146940",
+  email: "contact@bibiabusness.com",
+  url: "https://bibiabusness.vercel.app/produit",
   brand: {
     "@type": "Brand",
     name: "bibiabusness",
@@ -134,24 +132,7 @@ const slideIn = keyframes`
   from { transform: translateX(100%); }
   to { transform: translateX(0); }
 `;
-// Ajoutez ce style pour le bouton de fermeture
-const CloseButto = styled.button`
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
-  color: ${colors.dark};
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 10;
 
-  &:hover {
-    color: ${colors.primary};
-    transform: rotate(90deg);
-  }
-`;
 // Composants stylisés
 const Container = styled.div`
   min-height: 100vh;
@@ -229,6 +210,7 @@ const Section = styled.section`
 
   @media (max-width: 768px) {
     padding: 2rem 1rem;
+    margin: 1rem;
   }
 `;
 
@@ -892,8 +874,7 @@ const Navbar = () => {
       price: 40000,
       image: hui,
       category: "maison",
-      description:
-        "Naturel, idéal pour la douche.",
+      description: "Naturel, idéal pour la douche.",
     },
 
     // Catégorie Beauté
@@ -912,8 +893,7 @@ const Navbar = () => {
       price: 490000,
       image: ne,
       category: "maison",
-      description:
-        "Tres resistant contre le froid",
+      description: "Tres resistant contre le froid",
     },
 
     // Catégorie Bijoux
@@ -923,8 +903,7 @@ const Navbar = () => {
       price: 200000,
       image: eee,
       category: "bijoux",
-      description:
-        "Sac avec fermoir sécurisé, design intemporel.",
+      description: "Sac avec fermoir sécurisé, design intemporel.",
     },
     {
       id: 10,
@@ -932,8 +911,7 @@ const Navbar = () => {
       price: 119099,
       image: eeee,
       category: "bijoux",
-      description:
-        "Sac avec fermoir sécurisé, design intemporel.",
+      description: "Sac avec fermoir sécurisé, design intemporel.",
     },
 
     // Catégorie maison
@@ -943,8 +921,7 @@ const Navbar = () => {
       price: 500000,
       image: sep,
       category: "maison",
-      description:
-        "Inoxydable haute résistance, manche ergonomique.",
+      description: "Inoxydable haute résistance, manche ergonomique.",
     },
     {
       id: 12,
@@ -952,8 +929,7 @@ const Navbar = () => {
       price: 400000,
       image: rr,
       category: "electronique",
-      description:
-        "Pour vos mixages de menage",
+      description: "Pour vos mixages de menage",
     },
 
     // Catégorie Livres
@@ -963,8 +939,7 @@ const Navbar = () => {
       price: 80000,
       image: six,
       category: "mode",
-      description:
-        "Il y'a des differentes couleurs disponible",
+      description: "Il y'a des differentes couleurs disponible",
     },
     {
       id: 14,
@@ -972,8 +947,7 @@ const Navbar = () => {
       price: 240099,
       image: dix,
       category: "electronique",
-      description:
-        "Pour le menage de votre maison",
+      description: "Pour le menage de votre maison",
     },
 
     // Catégorie Santé
@@ -983,8 +957,7 @@ const Navbar = () => {
       price: 150000,
       image: rrr,
       category: "mode",
-      description:
-        "Habillement confortable avec style",
+      description: "Habillement confortable avec style",
     },
     {
       id: 16,
@@ -992,10 +965,8 @@ const Navbar = () => {
       price: 148099,
       image: rrrr,
       category: "mode",
-      description:
-        "Habillement confortable avec style",
+      description: "Habillement confortable avec style",
     },
-
   ];
   // Effets
   useEffect(() => {
@@ -1418,7 +1389,7 @@ const Navbar = () => {
     doc.setFontSize(24);
     doc.setTextColor(255, 255, 255);
     doc.setFont("helvetica", "bold");
-    doc.text("ETBLISSEMENT BIBIA BUSINESS", 105, 20, { align: "center" });
+    doc.text("ETABLISSEMENT BIBIA BUSINESS", 105, 20, { align: "center" });
 
     // Ligne de séparation
     doc.setDrawColor(...primaryColor);
@@ -1577,16 +1548,15 @@ const Navbar = () => {
 
   return (
     <>
-    <Seo
-  title="Achetez les meilleurs produits en ligne - Boutique Officielle"
-  description="Découvrez une large sélection de vêtements, équipements ménagers et produits alimentaires à des prix imbattables. Livraison rapide et paiement sécurisé."
-  keywords="achat en ligne, boutique e-commerce, vêtements, équipements ménagers, alimentation, prix abordables, livraison rapide, paiement sécurisé"
-/>
+      <Seo
+        title="Achetez les meilleurs produits en ligne - Boutique Officielle"
+        description="Découvrez une large sélection de vêtements, équipements ménagers et produits alimentaires à des prix imbattables. Livraison rapide et paiement sécurisé."
+        keywords="achat en ligne, boutique e-commerce, vêtements, équipements ménagers, alimentation, prix abordables, livraison rapide, paiement sécurisé"
+      />
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(createSchemaMarkup)}
         </script>
-       
       </Helmet>
       <Navigation />
       <GlobalStyle />
