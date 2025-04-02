@@ -425,6 +425,7 @@ const APropos = () => {
       <div className=" mb-52"> 
           
           </div>
+          
     </AboutContainer>
   );
 };

@@ -1,5 +1,4 @@
-
-import { React, lazy, useState ,useEffect} from "react";
+import { React, lazy, useState, useEffect } from "react";
 const Navigation = lazy(() => import("../Navigation"));
 import styled, { keyframes, createGlobalStyle } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,10 +20,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 
-
 import { Helmet } from "react-helmet";
 import Seo from "../../SEO";
-import fondbleufonce from '../../assets/fondbleufonce.avif'
+import fondbleufonce from "../../assets/fondbleufonce.avif";
+import Footer from "../Footerrr";
 // Palette de couleurs pour les thèmes clair et sombre
 const colors = {
   light: {
@@ -141,7 +140,7 @@ const HeroSection = styled.section`
   display: flex;
   align-items: center;
   background: linear-gradient(rgba(1, 29, 35, 0.7), rgba(1, 29, 35, 0.7)),
-  url("https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
+    url("https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
   background-size: cover;
   background-position: center;
   color: white;
@@ -182,9 +181,7 @@ const HeroContent = styled.div`
       font-size: 1.1rem;
       margin: 0 auto 2rem;
     }
-      
   }
-
 `;
 
 const CTAButton = styled.button`
@@ -638,10 +635,9 @@ const createSchemaMarkup = () => ({
   address: {
     "@type": "PostalAddress",
     streetAddress: "Guinée conakry kamsar",
-    addressLocality: "Kamsar"
+    addressLocality: "Kamsar",
   },
 });
-
 
 const Homepage = () => {
   const [theme, setTheme] = useState("light");
@@ -816,7 +812,7 @@ const Homepage = () => {
 
   return (
     <>
-     <Seo
+      <Seo
         title="Boutique en ligne - Votre destination shopping préférée"
         description="Découvrez notre large sélection de produits de qualité. Livraison rapide et paiement sécurisé a la livraison."
         keywords="boutique en ligne, shopping, produits tendance, livraison rapide"
@@ -827,7 +823,7 @@ const Homepage = () => {
         </script>
       </Helmet>
       <Navigation />
-      
+
       <GlobalStyle theme={colors[theme]} />
 
       <ThemeToggle onClick={toggleTheme}>
@@ -1007,9 +1003,12 @@ const Homepage = () => {
           ))}
         </Slider>
       </TestimonialsSection>
-      <div className=" mb-52"> 
-          
-          </div>
+      <div className=" mb-52">
+      
+      </div>
+      <div>
+        <Footer />
+      </div>
     </>
   );
 };

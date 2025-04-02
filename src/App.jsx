@@ -1,10 +1,9 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import "./App.css";
+//import "./App.css";
 import Adminmere from "./composant/interface/Adminmere";
 import Adminfils from "./composant/interface/Adminfils";
 import ProtectedRoute from "./composant/identification/ProtectedRoute ";
 import Visiteur from "./composant/interface/Visiteur";
-import Navbar from "./components/Navbar";
 import Produits from "./components/Produits/Produits";
 import Accueil from "./components/Accueil/Accueil";
 import Contact from "./components/Contact/Contact";

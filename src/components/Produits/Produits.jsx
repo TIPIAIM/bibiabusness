@@ -1418,7 +1418,7 @@ const Navbar = () => {
     doc.setFontSize(24);
     doc.setTextColor(255, 255, 255);
     doc.setFont("helvetica", "bold");
-    doc.text("BIBIABUSINESS", 105, 20, { align: "center" });
+    doc.text("ETBLISSEMENT BIBIA BUSINESS", 105, 20, { align: "center" });
 
     // Ligne de séparation
     doc.setDrawColor(...primaryColor);
@@ -1552,7 +1552,7 @@ const Navbar = () => {
     doc.setFontSize(14);
     doc.setTextColor(...secondaryColor);
     doc.setFont("helvetica", "bold");
-    doc.text("Total à payer:", 130, finalY + 25);
+    doc.text("Total à payer:", 110, finalY + 25);
     doc.text(formatPrice(orderDetails.total), 190, finalY + 25, {
       align: "right",
     });
