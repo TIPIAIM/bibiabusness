@@ -1006,9 +1006,7 @@ const Homepage = () => {
         </Slider>
       </TestimonialsSection>
       <div className=" mb-52"></div>
-      <div>
-        <Footer />
-      </div>
+      
     </>
   );
 };
