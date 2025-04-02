@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { Menu, X, Home, Box, Info, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import logo from "../assets/leblanc.avif"; // À modifier
 // Palette de couleurs
 const colors = {
   primary: "#b96f33",
@@ -78,7 +78,7 @@ const NavMenu = styled.ul`
     justify-content: flex-start;
     padding-top: 2rem;
     transition: all 0.5s ease;
-    box-shadow: 1px 3px 1px ;
+    box-shadow: 1px 3px 1px;
   }
 `;
 
@@ -146,7 +146,40 @@ const MobileIcon = styled.div`
     display: block;
   }
 `;
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2px;
+`;
 
+const LogoImage = styled.img`
+  height: 80px;
+  width: auto;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    height: 32px;
+  }
+`;
+
+const LogoText = styled.div`
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: ${(props) => (props.$scrolled ? colors.primary : colors.primary)};
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+
+  span {
+    color: ${(props) => (props.$scrolled ? colors.dark : colors.dark)};
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+`;
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -172,11 +205,18 @@ const Navigation = () => {
     <div className=" mb-20">
       <GlobalStyle />
       <NavbarContainer $scrolled={scrolled}>
-        <Link to='/' className=" no-underline">
-        <Logo $scrolled={scrolled}>
-          Bibia<span>Business</span>
-        </Logo>
-</Link>
+        <Link to="/" className=" no-underline">
+        <LogoContainer>
+            <LogoImage 
+              src={logo} 
+              alt="Logo BibiaBusiness" 
+              $scrolled={scrolled}
+            />
+            <LogoText $scrolled={scrolled}>
+              Bibia<span>Business</span>
+            </LogoText>
+          </LogoContainer>
+        </Link>
         <MobileIcon $scrolled={scrolled} onClick={toggleMenu}>
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </MobileIcon>
