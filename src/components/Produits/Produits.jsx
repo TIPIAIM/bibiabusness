@@ -983,12 +983,17 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Fonctions utilitaires
+  // Fonctions utilitaires pour la facture
+
   const formatPrice = (price) => {
-    return new Intl.NumberFormat("fr-FR", {
-      style: "currency",
-      currency: "GNF",
-    }).format(price);
+    // Formatage sans les séparateurs de milliers
+    return (
+      new Intl.NumberFormat("fr-FR", {
+        style: "decimal", // Utilisez 'decimal' au lieu de 'currency'
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      }).format(price) + " GNF"
+    ); // Ajoutez manuellement la devise si nécessaire
   };
   //pri
   const sanitizeInput = (input) => {
@@ -1410,11 +1415,11 @@ const Navbar = () => {
 
     doc.setFont("helvetica", "normal");
     doc.setTextColor(0, 0, 0);
-    doc.text(`Nom: ${formData.lastName}`, 20, 65);
-    doc.text(`Prénom: ${formData.firstName}`, 20, 70);
-    doc.text(`Adresse: ${formData.address}`, 20, 75);
-    doc.text(`Ville: ${formData.city}`, 20, 80);
-    doc.text(`Téléphone: ${formData.phone}`, 20, 85);
+    doc.text(`Nom: ${formData.lastName}`, 20, 68);
+    doc.text(`Prénom: ${formData.firstName}`, 20, 73);
+    doc.text(`Adresse: ${formData.address}`, 20, 78);
+    doc.text(`Ville: ${formData.city}`, 20, 83);
+    doc.text(`Téléphone: ${formData.phone}`, 20, 88);
 
     // Détails de commande
     doc.setFontSize(10);
@@ -1474,11 +1479,11 @@ const Navbar = () => {
           styles: { halign: "left" },
         },
         {
-          content: formatPrice(item.price),
+          content: `${item.price} GNF`,
           styles: { halign: "left" },
         },
         {
-          content: formatPrice(item.price * item.quantity),
+          content: `${item.price * item.quantity} GNF`,
           styles: { halign: "left" },
         },
       ]),
@@ -1520,14 +1525,13 @@ const Navbar = () => {
     doc.line(20, finalY + 10, 190, finalY + 10);
 
     // Total
-    doc.setFontSize(8);
+    doc.setFontSize(10);
     doc.setTextColor(...secondaryColor);
     doc.setFont("helvetica", "bold");
     doc.text("Total à payer:", 50, finalY + 15);
-    doc.text(formatPrice(orderDetails.total), 150, finalY + 15, {
-      align: "left",
-    });
-
+    doc.text(`${orderDetails.total} GNF`, 150, finalY + 15, { align: "left" });
+   ;
+// doc.text(formatPrice(orderDetails.total), 150, finalY + 15, {align: "left",})
     // Pied de page
     doc.setFontSize(5);
     doc.setTextColor(100, 100, 100);

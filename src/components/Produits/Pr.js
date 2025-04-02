@@ -1850,3 +1850,203 @@ const Navbar = () => {
   );
 };
 export default Navba;
+{/**
+const generatePDF = (invoiceNumber, invoiceDate) => {
+  const doc = new jsPDF();
+
+  // Couleurs personnalisées
+  const primaryColor = [185, 111, 51]; // #b96f33
+  const secondaryColor = [1, 29, 35]; // #011d23
+  const lightColor = [248, 249, 250]; // #f8f9fa
+
+  // En-tête avec logo et informations
+  doc.setFillColor(...primaryColor);
+  doc.rect(0, 0, 210, 30, "F");
+
+  // Ajout du logo AVIF depuis le dossier public
+  const logoPath = "/img/fondbleufonce.avif";
+  const img = new Image();
+  img.src = logoPath;
+
+  // Fonction pour ajouter le logo une fois qu'il est chargé
+  img.onload = function() {
+    // Dimensions et position du logo
+    const logoWidth = 30;
+    const logoHeight = 20;
+    const logoX = 20;
+    const logoY = 5;
+
+    // Ajout effectif du logo
+    doc.addImage(img, "AVIF", logoX, logoY, logoWidth, logoHeight);
+
+    // Logo et nom de l'entreprise
+    doc.setFontSize(20);
+    doc.setTextColor(255, 255, 255);
+    doc.setFont("helvetica", "bold");
+    doc.text("ETABLISSEMENT BIBIA BUSINESS", 120, 20, { align: "center" });
+
+    // Ligne de séparation
+    doc.setDrawColor(...primaryColor);
+    doc.setLineWidth(0.5);
+    doc.line(20, 35, 190, 35);
+
+    // Informations de facture
+    doc.setFontSize(8);
+    doc.setTextColor(100, 100, 100);
+    doc.text(`Facture N°: ${invoiceNumber}`, 20, 45);
+    doc.text(`Date: ${invoiceDate}`, 190, 45, { align: "right" });
+
+    // Section client
+    doc.setFontSize(10);
+    doc.setTextColor(...secondaryColor);
+    doc.setFont("helvetica", "bold");
+    doc.text("INFORMATIONS CLIENT", 20, 60);
+
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(0, 0, 0);
+    doc.text(`Nom: ${formData.lastName}`, 20, 65);
+    doc.text(`Prénom: ${formData.firstName}`, 20, 70);
+    doc.text(`Adresse: ${formData.address}`, 20, 75);
+    doc.text(`Ville: ${formData.city}`, 20, 80);
+    doc.text(`Téléphone: ${formData.phone}`, 20, 85);
+
+    // Détails de commande
+    doc.setFontSize(10);
+    doc.setTextColor(...secondaryColor);
+    doc.setFont("helvetica", "bold");
+    doc.text("DÉTAILS DE LA COMMANDE", 20, 95);
+
+    // Tableau des produits
+    autoTable(doc, {
+      startY: 100,
+      head: [
+        [
+          {
+            content: "Produit",
+            styles: {
+              fillColor: secondaryColor,
+              textColor: 255,
+              fontStyle: "bold",
+            },
+          },
+          {
+            content: "Qté",
+            styles: {
+              fillColor: secondaryColor,
+              textColor: 255,
+              fontStyle: "bold",
+              halign: "left",
+            },
+          },
+          {
+            content: "Prix Unitaire",
+            styles: {
+              fillColor: secondaryColor,
+              textColor: 255,
+              fontStyle: "bold",
+              halign: "left",
+            },
+          },
+          {
+            content: "Total",
+            styles: {
+              fillColor: secondaryColor,
+              textColor: 255,
+              fontStyle: "bold",
+              halign: "left",
+            },
+          },
+        ],
+      ],
+      body: orderDetails.items.map((item) => [
+        {
+          content: item.name,
+          styles: { fontStyle: "bold" },
+        },
+        {
+          content: item.quantity,
+          styles: { halign: "left" },
+        },
+        {
+          content: formatPrice(item.price),
+          styles: { halign: "left" },
+        },
+        {
+          content: formatPrice(item.price * item.quantity),
+          styles: { halign: "left" },
+        },
+      ]),
+      headStyles: {
+        fillColor: secondaryColor,
+        textColor: 255,
+        fontStyle: "bold",
+      },
+      alternateRowStyles: {
+        fillColor: lightColor,
+      },
+      margin: { top: 10 },
+      styles: {
+        cellPadding: 3,
+        fontSize: 8,
+        valign: "middle",
+      },
+      columnStyles: {
+        0: { cellWidth: "auto" },
+        1: { cellWidth: 20 },
+        2: { cellWidth: 40 },
+        3: { cellWidth: 40 },
+      },
+    });
+
+    // Section totale
+    const finalY = doc.lastAutoTable.finalY + 10;
+
+    doc.setFontSize(8);
+    doc.setTextColor(...secondaryColor);
+    doc.setFont("helvetica", "bold");
+    doc.text("Méthode de paiement:", 20, finalY);
+    doc.setFont("helvetica", "normal");
+    doc.text("Paiement à la livraison (espèces)", 50, finalY);
+
+    // Ligne de séparation
+    doc.setDrawColor(...primaryColor);
+    doc.setLineWidth(0.5);
+    doc.line(20, finalY + 10, 190, finalY + 10);
+
+    // Total
+    doc.setFontSize(8);
+    doc.setTextColor(...secondaryColor);
+    doc.setFont("helvetica", "bold");
+    doc.text("Total à payer:", 50, finalY + 15);
+    doc.text(formatPrice(orderDetails.total), 150, finalY + 15, {
+      align: "left",
+    });
+
+    // Pied de page
+    doc.setFontSize(5);
+    doc.setTextColor(100, 100, 100);
+    doc.text("Merci pour votre confiance !", 105, 280, { align: "center" });
+    doc.text("Bibiabusiness - Votre partenaire shopping premium", 105, 285, {
+      align: "center",
+    });
+    doc.text(
+      "Contact: contact@bibiabusiness.com - +224 624 456 789",
+      105,
+      290,
+      { align: "center" }
+    );
+
+    // Sauvegarde
+    doc.save(`facture_${invoiceNumber}.pdf`);
+  };
+
+  // Gestion des erreurs de chargement de l'image
+  img.onerror = function() {
+    console.error("Erreur lors du chargement du logo:", logoPath);
+    // Vous pouvez ajouter ici un message d'erreur dans le PDF ou une image de remplacement
+    // Si vous ne voulez pas arrêter la génération du PDF, vous pouvez continuer sans le logo
+    // et afficher un message d'erreur dans la console.
+  };
+};    
+*/}
+
