@@ -153,7 +153,7 @@ const Header = styled.header`
   transition: all 0.4s ease;
  
   box-shadow: ${({ $scrolled }) =>
-    $scrolled ? "0 2px 10px rgba(0, 0, 0, 0.5)" : "none"};
+    $scrolled ? "0 2px 10px rgba(0, 0, 0, 0.1)" : "none"};
 
   @media (max-width: 768px) {
     padding: 0.5rem 0;
