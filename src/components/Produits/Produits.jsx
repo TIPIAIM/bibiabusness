@@ -24,6 +24,10 @@ import {
   faBookOpen, // Livres - Nouvelle catégorie
   faHeartPulse,
   faPhone,
+  faUser, // Pour nom/prénom
+  faMapMarkerAlt, // Pour adresse
+  faCity, // Pour ville
+  faPhoneAlt, // Pour téléphone (alternative)
 } from "@fortawesome/free-solid-svg-icons";
 
 import jsPDF from "jspdf";
@@ -1402,7 +1406,7 @@ const Navbar = () => {
     doc.line(20, 35, 190, 35);
 
     // Informations de facture
-    doc.setFontSize(8);
+    doc.setFontSize(11);
     doc.setTextColor(100, 100, 100);
     doc.text(`Facture N°: ${invoiceNumber}`, 20, 45);
     doc.text(`Date: ${invoiceDate}`, 190, 45, { align: "right" });
@@ -1530,10 +1534,9 @@ const Navbar = () => {
     doc.setFont("helvetica", "bold");
     doc.text("Total à payer:", 50, finalY + 15);
     doc.text(`${orderDetails.total} GNF`, 150, finalY + 15, { align: "left" });
-   ;
-// doc.text(formatPrice(orderDetails.total), 150, finalY + 15, {align: "left",})
+    // doc.text(formatPrice(orderDetails.total), 150, finalY + 15, {align: "left",})
     // Pied de page
-    doc.setFontSize(5);
+    doc.setFontSize(7);
     doc.setTextColor(100, 100, 100);
     doc.text("Merci pour votre confiance !", 105, 280, { align: "center" });
     doc.text("Bibiabusiness - Votre partenaire shopping premium", 105, 285, {
@@ -1743,81 +1746,130 @@ const Navbar = () => {
                   }}
                 >
                   <FormGroup>
-                    <FormLabel>Nom*</FormLabel>
-                    <FormInput
-                      type="text"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      $error={errors.lastName}
-                    />
+                    <div style={{ position: "relative" }}>
+                      <div
+                        style={{
+                          position: "absolute",
+                          right: "10px",
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                        }}
+                      >
+                        <FontAwesomeIcon icon={faUser} />
+                      </div>
+                      <FormInput
+                        type="text"
+                        name="lastName"
+                        placeholder="* Votre nom"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        $error={errors.lastName}
+                        style={{ paddingLeft: "35px" }}
+                      />
+                    </div>
                     {errors.lastName && (
                       <ErrorMessage>{errors.lastName}</ErrorMessage>
                     )}
                   </FormGroup>
+
                   <FormGroup>
-                    <FormLabel>Prénom*</FormLabel>
-                    <FormInput
-                      type="text"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      $error={errors.firstName}
-                    />
+                    <div style={{ position: "relative" }}>
+                      <div
+                        style={{
+                          position: "absolute",
+                          right: "10px",
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                        }}
+                      >
+                        <FontAwesomeIcon icon={faUser} />
+                      </div>
+                      <FormInput
+                        type="text"
+                        name="firstName"
+                        placeholder="* Votre prénom"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        style={{ paddingLeft: "35px" }}
+                      />
+                    </div>
                     {errors.firstName && (
                       <ErrorMessage>{errors.firstName}</ErrorMessage>
                     )}
                   </FormGroup>
                 </div>
+
                 <FormGroup>
-                  <FormLabel>Téléphone* (+224)</FormLabel>
                   <div style={{ position: "relative" }}>
-                    <FormInput
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handlePhoneChange}
-                      placeholder="123 456 789"
-                      $error={errors.phone}
-                      maxLength={11} // 9 chiffres + 2 espaces
-                    />
                     <div
                       style={{
                         position: "absolute",
                         right: "10px",
                         top: "50%",
                         transform: "translateY(-50%)",
-                        color: colors.primary,
                       }}
                     >
-                      <FontAwesomeIcon icon={faPhone} />
+                      <FontAwesomeIcon icon={faPhoneAlt} />
                     </div>
+                    <FormInput
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handlePhoneChange}
+                      placeholder="* Ex: 624 588 998"
+                      $error={errors.phone}
+                      maxLength={11}
+                      style={{ paddingLeft: "35px" }}
+                    />
                   </div>
                   {errors.phone && <ErrorMessage>{errors.phone}</ErrorMessage>}
                 </FormGroup>
-
                 <FormGroup>
-                  <FormLabel>Adresse*</FormLabel>
-                  <FormTextarea
-                    name="address"
-                    value={formData.address}
-                    onChange={handleInputChange}
-                    $error={errors.address}
-                  />
-
+                  <div style={{ position: "relative" }}>
+                    <div
+                      style={{
+                        position: "absolute",
+                        right: "10px",
+                        top: "20px",
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faMapMarkerAlt} />
+                    </div>
+                    <FormTextarea
+                      name="address"
+                      placeholder="* Votre adresse complète"
+                      value={formData.address}
+                      onChange={handleInputChange}
+                      $error={errors.address}
+                      style={{ paddingLeft: "35px" }}
+                    />
+                  </div>
                   {errors.address && (
                     <ErrorMessage>{errors.address}</ErrorMessage>
                   )}
                 </FormGroup>
                 <FormGroup>
-                  <FormLabel>Ville*</FormLabel>
-                  <FormInput
-                    type="text"
-                    name="city"
-                    value={formData.city}
-                    onChange={handleInputChange}
-                    $error={errors.city}
-                  />
+                  <div style={{ position: "relative" }}>
+                    <div
+                      style={{
+                        position: "absolute",
+                        right: "10px",
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faCity} />
+                    </div>
+                    <FormInput
+                      type="text"
+                      name="city"
+                      placeholder="* Votre ville"
+                      value={formData.city}
+                      onChange={handleInputChange}
+                      $error={errors.city}
+                      style={{ paddingLeft: "35px" }}
+                    />
+                  </div>
                   {errors.city && <ErrorMessage>{errors.city}</ErrorMessage>}
                 </FormGroup>
 
