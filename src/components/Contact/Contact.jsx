@@ -431,7 +431,7 @@ const Contact = () => {
             <InfoIcon>
               <FontAwesomeIcon icon={faPhone} />
             </InfoIcon>
-            <span>+224 624 456 789</span>
+            <span>+224 623 146 940</span>
           </InfoItem>
           <InfoItem>
             <InfoIcon>

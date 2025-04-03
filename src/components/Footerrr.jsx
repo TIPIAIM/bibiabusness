@@ -48,7 +48,7 @@ const itemVariants = {
   },
 };
 const FullWidthFooter = styled.footer`
-  width: 100vw;
+  width: 99vw; //ocupe les largeur en plain
   position: relative;
   left: 50%;
   right: 50%;
@@ -310,7 +310,7 @@ const LegalLink = styled(motion.a).attrs(() => ({
     color: ${colors.primary};
   }
   @media (max-width: 480px) {
-    align-items: left
+    align-items: left;
   }
 `;
 
@@ -538,12 +538,12 @@ const Footer = () => {
               </ContactItem>
               <ContactItem>
                 <Phone size={18} />
-                <a href="tel:+224629066988">+224 629 066 988</a>
+                <a href="tel:+224623146940">+224 623 146 940</a>
               </ContactItem>
               <ContactItem>
                 <Mail size={18} />
-                <a href="mailto:bibia.business@gmail.com">
-                  bibia.business@gmail.com
+                <a href="mailto:contact@bibiabusiness.com">
+                  contact@bibiabusiness.com
                 </a>
               </ContactItem>
             </ContactSection>
