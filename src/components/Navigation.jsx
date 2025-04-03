@@ -41,25 +41,6 @@ const NavbarContainer = styled.nav`
   transition: all 0.3s ease;
 `;
 
-const Logo = styled.div`
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: ${(props) => (props.$scrolled ? colors.primary : colors.primary)};
-  display: flex;
-  align-items: center;
-  transition: color 0.3s ease;
-
-  span {
-    color: ${(props) => (props.$scrolled ? colors.dark : colors.dark)};
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-`;
-
 const NavMenu = styled.ul`
   display: flex;
   align-items: center;
@@ -158,7 +139,7 @@ const LogoImage = styled.img`
   transition: all 0.3s ease;
 
   @media (max-width: 768px) {
-    height: 32px;
+    height: 70px;
   }
 `;
 
@@ -206,10 +187,10 @@ const Navigation = () => {
       <GlobalStyle />
       <NavbarContainer $scrolled={scrolled}>
         <Link to="/" className=" no-underline">
-        <LogoContainer>
-            <LogoImage 
-              src={logo} 
-              alt="Logo BibiaBusiness" 
+          <LogoContainer>
+            <LogoImage
+              src={logo}
+              alt="Logo BibiaBusiness"
               $scrolled={scrolled}
             />
             <LogoText $scrolled={scrolled}>
