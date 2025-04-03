@@ -36,7 +36,7 @@ import autoTable from "jspdf-autotable";
 import chemiseSoie from "../../assets/com.jpg";
 
 import hhhhh from "../../assets/hhhhh.jpeg";
-
+//les produits
 import eee from "../../assets/1.png";
 import eeee from "../../assets/2.png";
 import rr from "../../assets/3.png";
@@ -143,18 +143,22 @@ const Container = styled.div`
   background-color: ${colors};
 `;
 
+
 const Header = styled.header`
-  top: 0;
-  background-color: ;
+  position: sticky;
+  top: 10;
+  background-color: ${colors.white};
   width: 100%;
-  z-index: 1000;
+  z-index: 0;
   transition: all 0.4s ease;
+ 
+  box-shadow: ${({ $scrolled }) =>
+    $scrolled ? "0 2px 10px rgba(0, 0, 0, 0.5)" : "none"};
 
   @media (max-width: 768px) {
     padding: 0.5rem 0;
   }
 `;
-
 const HeaderContainer = styled.div`
   max-width: 500px;
   margin: 0 auto;
@@ -204,7 +208,35 @@ const Badge = styled.span`
   justify-content: center;
   font-size: 0.75rem;
 `;
+const FixedCartButton = styled(IconButton)`
+  position: fixed;
+  right: 0.8rem;
+  top: 5.99rem;
+  z-index: 999;
+  background-color: ${colors.primary};
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 2px ${colors.dark};
+  transition: all 0.3s ease;
 
+  &:hover {
+    background-color: ${colors.dark};
+      box-shadow: 0 4px 3px  ${colors.primary};
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    right: 1.3rem;
+    top: 6.5rem;
+    width: 45px;
+    height: 45px;
+  }
+`;
 const Section = styled.section`
   padding: 3rem 0;
   max-width: 1200px;
@@ -585,14 +617,6 @@ const ModalBody = styled.div`
 
 const FormGroup = styled.div`
   margin-bottom: 0.8rem;
-`;
-
-const FormLabel = styled.label`
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: ${colors.dark};
 `;
 
 const FormInput = styled.input`
@@ -1568,6 +1592,12 @@ const Navbar = () => {
       <Navigation />
       <GlobalStyle />
       <Container>
+        {/* Bouton panier fixe */}
+        <FixedCartButton onClick={() => setShowCart(!showCart)}>
+          <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+          {cartCount > 0 && <Badge>{cartCount}</Badge>}
+        </FixedCartButton>
+
         <ToastContainer
           position="top-right"
           autoClose={5000}
@@ -1586,12 +1616,7 @@ const Navbar = () => {
           <SectionTitle>Nos Catégories</SectionTitle> {/* Header */}
           <Header $scrolled={isScrolled}>
             <HeaderContainer>
-              <Logo>
-                <IconButton onClick={() => setShowCart(!showCart)}>
-                  <FontAwesomeIcon icon={faShoppingCart} />
-                  {cartCount > 0 && <Badge>{cartCount}</Badge>}
-                </IconButton>
-              </Logo>
+              <Logo></Logo>
 
               <SearchContainer>
                 <SearchInput

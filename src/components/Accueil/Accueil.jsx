@@ -181,7 +181,7 @@ const HeroContent = styled.div`
     @media (max-width: 768px) {
       font-size: 1.1rem;
       margin: 0 auto 2rem;
-      text-lign:left;
+      text-lign: left;
     }
   }
 `;
@@ -1006,7 +1006,6 @@ const Homepage = () => {
         </Slider>
       </TestimonialsSection>
       <div className=" mb-52"></div>
-      
     </>
   );
 };

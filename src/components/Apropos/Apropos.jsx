@@ -317,7 +317,7 @@ const APropos = () => {
           <HeroContent>
             <Title>Notre Histoire</Title>
             <Subtitle>
-              Fondé en <Highlight>2017</Highlight>, BibiaBusiness est né d'une
+              Fondé par Fatoumata Binta Sow en <Highlight>2017</Highlight>, BibiaBusiness est né d'une
               passion pour l'aménagement intérieur, la décoration et la vente
               d'articles de maison et de vêtements de qualité. Ce qui a débuté
               comme une petite boutique locale est rapidement devenu une
