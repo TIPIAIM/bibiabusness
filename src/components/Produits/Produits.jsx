@@ -143,7 +143,6 @@ const Container = styled.div`
   background-color: ${colors};
 `;
 
-
 const Header = styled.header`
   position: sticky;
   top: 10;
@@ -151,7 +150,7 @@ const Header = styled.header`
   width: 100%;
   z-index: 0;
   transition: all 0.4s ease;
- 
+
   box-shadow: ${({ $scrolled }) =>
     $scrolled ? "0 2px 10px rgba(0, 0, 0, 0.1)" : "none"};
 
@@ -226,7 +225,7 @@ const FixedCartButton = styled(IconButton)`
 
   &:hover {
     background-color: ${colors.dark};
-      box-shadow: 0 4px 3px  ${colors.primary};
+    box-shadow: 0 4px 3px ${colors.primary};
     transform: scale(1.05);
   }
 
@@ -1246,8 +1245,8 @@ const Navbar = () => {
                   style={{
                     fontSize: "1.125rem",
                     fontWeight: 600,
-                    color: colors.success,
-                    marginBottom: "8px",
+                    color: colors.primary,
+                    marginBottom: "4px",
                   }}
                 >
                   Commande confirmée
@@ -1262,15 +1261,23 @@ const Navbar = () => {
                 />
                 <div
                   style={{
-                    fontSize: "0.875rem",
+                    fontSize: "0.775rem",
                     color: colors.dark,
                     lineHeight: "1.5",
                   }}
                 >
-                  Notre équipe vous contactera sous 24h
-                  <br />
-                  Livraison prévue sous 24h <br />
-                  Facture téléchargée dans la machine
+                  <p>
+                    ✓ Votre facture a été automatiquement téléchargée dans votre
+                    espace "Téléchargements"
+                  </p>
+                  <p>
+                    ✓ Veuillez la conserver précieusement jusqu'à la réception
+                    de votre commande
+                  </p>
+                  <p>
+                    ✓ Notre équipe vous contactera sous 24h pour confirmer la
+                    livraison
+                  </p>
                 </div>
               </div>
             </div>
@@ -1278,7 +1285,7 @@ const Navbar = () => {
         ),
         type: "success",
         isLoading: false,
-        autoClose: 8000,
+        autoClose: 10000, // Augmentez le temps d'affichage à 10 secondes
         closeButton: true,
         draggable: true,
       });
@@ -1422,8 +1429,8 @@ const Navbar = () => {
     doc.setFontSize(20);
     doc.setTextColor(255, 255, 255);
     doc.setFont("helvetica", "bold");
-    doc.text("ETABLISSEMENT BIBIA BUSINESS", 105, 20, { align: "center" });
-
+    doc.text("ETABLISSEMENT BIBIA BUSINESS", 105, 20, { align: "center", fontStyle: "bold" });
+   
     // Ligne de séparation
     doc.setDrawColor(...primaryColor);
     doc.setLineWidth(0.5);
@@ -1434,7 +1441,10 @@ const Navbar = () => {
     doc.setTextColor(100, 100, 100);
     doc.text(`Facture N°: ${invoiceNumber}`, 20, 45);
     doc.text(`Date: ${invoiceDate}`, 190, 45, { align: "right" });
-
+    doc.text("CONSERVEZ CETTE FACTURE JUSQU'À LA LIVRAISON", 105, 28, {
+      align: "center",
+      // fontStyle: "bold",
+    });
     // Section client
     doc.setFontSize(10);
     doc.setTextColor(...secondaryColor);
@@ -1454,7 +1464,7 @@ const Navbar = () => {
     doc.setTextColor(...secondaryColor);
     doc.setFont("helvetica", "bold");
     doc.text("DÉTAILS DE LA COMMANDE", 20, 95);
-
+ 
     // Tableau des produits
     autoTable(doc, {
       startY: 100,
@@ -1562,12 +1572,13 @@ const Navbar = () => {
     // Pied de page
     doc.setFontSize(7);
     doc.setTextColor(100, 100, 100);
+   
     doc.text("Merci pour votre confiance !", 105, 280, { align: "center" });
     doc.text("Bibiabusiness - Votre partenaire shopping premium", 105, 285, {
       align: "center",
     });
     doc.text(
-      "Contact: contact@bibiabusiness.com - +224 624 456 789",
+      "Contact: contact@bibiabusiness.com - +224 623 146 940",
       105,
       290,
       { align: "center" }
